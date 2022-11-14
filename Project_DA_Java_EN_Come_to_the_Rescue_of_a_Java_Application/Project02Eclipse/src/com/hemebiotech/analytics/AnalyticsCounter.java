@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -13,31 +15,37 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 
-			//symptoms.txt
-			String symptomsFile = args[0];
+		InputStreamReader inputReader = new InputStreamReader(System.in);
 
-			//result.out
-			String resultFile = args[1];
+		BufferedReader pathReader = new BufferedReader(inputReader);
+
+		System.out.println("Give me your input file");
+
+		String inputFile = pathReader.readLine();
+
+		//Call obj readSymptom
+		ReadSymptomDataFromFile readSymptom = new ReadSymptomDataFromFile(inputFile);
+
+		//Call obj symptoms
+		ArrayList<String> symptoms = readSymptom.getSymptoms();
+
+		// Counting the frequencies
+
+		CountDataFrequencies countSymptoms= new CountDataFrequencies();
+
+		Map<String, Integer> treeMap = countSymptoms.countFrequencies(symptoms);
+
+		// Writing in the file
+
+		System.out.println("Give me your output file");
+
+		String outputFile = pathReader.readLine();
+		WriteSymptomDataToFile writeSymptoms = new WriteSymptomDataToFile(outputFile);
+
+		writeSymptoms.writeData(treeMap);
 
 
-			//Call obj readSymptom
-			ReadSymptomDataFromFile readSymptom = new ReadSymptomDataFromFile(symptomsFile);
-
-			//Call obj symptoms
-			ArrayList<String> symptoms = readSymptom.getSymptoms();
-
-			// Counting the frequencies
-
-			CountDataFrequencies countSymptoms= new CountDataFrequencies();
-
-			Map<String, Integer> treeMap = countSymptoms.countFrequencies(symptoms);
-
-			// Writing in the file
-			WriteSymptomDataToFile writeSymptoms = new WriteSymptomDataToFile(resultFile);
-
-			writeSymptoms.writeData(treeMap);
-
-		}
+	}
 
 	}
 
