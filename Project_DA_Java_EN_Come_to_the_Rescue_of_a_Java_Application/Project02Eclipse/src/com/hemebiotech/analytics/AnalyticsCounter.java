@@ -19,10 +19,12 @@ public class AnalyticsCounter {
 			//result.out
 			String resultFile = args[1];
 
-			analyticsCounter(symptomsFile, resultFile);
+			AnalyticsCounter ac = new AnalyticsCounter();
+
+			ac.analyticsCounter(symptomsFile, resultFile);
 		}
 
-		public static void analyticsCounter( String symptomsFile , String resultFile) {
+		public void analyticsCounter( String symptomsFile , String resultFile) {
 
 			//Call obj readSymptom
 			ReadSymptomDataFromFile readSymptom = new ReadSymptomDataFromFile(symptomsFile);
