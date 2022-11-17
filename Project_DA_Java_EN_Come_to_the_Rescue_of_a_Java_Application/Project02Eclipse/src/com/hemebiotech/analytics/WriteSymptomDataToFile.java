@@ -29,7 +29,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 
                 for (Map.Entry<String, Integer> val : treeMap.entrySet()) {
 
-                    fileWriter.write("Symptom " + val.getKey() + " " + ": " + val.getValue());
+                    fileWriter.write( val.getKey() + " " + ": " + val.getValue());
 
                     fileWriter.newLine();
                 }

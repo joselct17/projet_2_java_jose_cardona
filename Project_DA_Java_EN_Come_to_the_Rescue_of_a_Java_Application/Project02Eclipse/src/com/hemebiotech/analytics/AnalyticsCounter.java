@@ -19,6 +19,10 @@ public class AnalyticsCounter {
 			//result.out
 			String resultFile = args[1];
 
+			analyticsCounter(symptomsFile, resultFile);
+		}
+
+		public static void analyticsCounter( String symptomsFile , String resultFile) {
 
 			//Call obj readSymptom
 			ReadSymptomDataFromFile readSymptom = new ReadSymptomDataFromFile(symptomsFile);
@@ -36,7 +40,6 @@ public class AnalyticsCounter {
 			WriteSymptomDataToFile writeSymptoms = new WriteSymptomDataToFile(resultFile);
 
 			writeSymptoms.writeData(treeMap);
-
 		}
 
 	}
