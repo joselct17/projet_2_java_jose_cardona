@@ -16,11 +16,13 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 
-		analyticsCounter();
+		AnalyticsCounter ac = new AnalyticsCounter();
+
+		ac.analyticsCounter();
 
 	}
 
-	public static void analyticsCounter () throws IOException {
+	public  void analyticsCounter () throws IOException {
 		InputStreamReader inputReader = new InputStreamReader(System.in);
 
 		BufferedReader pathReader = new BufferedReader(inputReader);
