@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Map;
@@ -15,6 +16,11 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 
+		analyticsCounter();
+
+	}
+
+	public static void analyticsCounter () throws IOException {
 		InputStreamReader inputReader = new InputStreamReader(System.in);
 
 		BufferedReader pathReader = new BufferedReader(inputReader);
@@ -43,8 +49,6 @@ public class AnalyticsCounter {
 		WriteSymptomDataToFile writeSymptoms = new WriteSymptomDataToFile(outputFile);
 
 		writeSymptoms.writeData(treeMap);
-
-
 	}
 
 	}
