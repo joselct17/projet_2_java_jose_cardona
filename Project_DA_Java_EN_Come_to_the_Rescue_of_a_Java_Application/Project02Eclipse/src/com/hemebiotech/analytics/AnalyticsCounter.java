@@ -19,7 +19,7 @@ public class AnalyticsCounter {
 			//result.out
 			String resultFile = args[1];
 
-			AnalyticsCounter ac = new AnalyticsCounter();
+			AnalyticsCounter ac  = new AnalyticsCounter();
 
 			ac.analyticsCounter(symptomsFile, resultFile);
 		}
